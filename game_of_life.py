@@ -49,10 +49,13 @@ class Board():
 		neighbor_coordinates = self.get_all_neighbor_coord(cell_coordinates)
 		live_neighbor_count = 0
 		for neighbor in neighbor_coordinates:
-			value = self.get_cell_value(neighbor)
-			if value == 1:
-				live_neighbor_count += value
-			else:
+			try:
+				value = self.get_cell_value(neighbor)
+				if value == 1:
+					live_neighbor_count += value
+				else:
+					continue
+			except IndexError:
 				continue
 		return live_neighbor_count
 
