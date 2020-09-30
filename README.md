@@ -13,23 +13,27 @@ git clone https://github.com/clpatterson/game_of_life.git
 ```bash
 python3 -m venv venv
 ```
-3) Install all requirements
+3) Activate virtual environment
+```bash
+source venv/bin/activate
+```
+4) Install all requirements
 ```bash
 pip install -r requirements.txt
 ```
-4) Set game variables
+5) Set game variables
     * Starting at line 22 in game_of_life_interface.py set board size, number of generations, and game speed
-5) Run the game
+6) Run the game
 ```bash
 python3 game_of_life_interface.py
 ```
-6) For game boards with size over 1000, use convolve_gol.py
+7) For game boards with size over 1000, use convolve_gol.py
     * Set game variables starting at line 6
-7) Run game
+8) Run game
 ```bash
 python3 convolve_gol.py
 ```
-8) Use the magnify glass icon in the GUI to zoom in on large boards
+9) Use the magnify glass icon in the GUI to zoom in on large boards
 
 ![gui_zoom](docs/convolve_game_zoom.gif)
 
