@@ -18,15 +18,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 import game_of_life
 
+# Global game variables
+size = 100
+generations = 150
+speed = 0.1
 
 print("Let the Game of life begin!")
 
-# TODO: allow user to select the game board size
-game = game_of_life.Board(12) # Initialize with randomly seeded board
+game = game_of_life.Board(size) # Initialize with randomly seeded board
 plt.ion() # set matplotlib to interactive mode
 img = plt.imshow(game.board) # Show the game board as image
-# TODO: allow user to select number of generations to play
-for n in range(100): # Set number of generations / life cycles to play
+
+for n in range(generations): # Set number of generations / life cycles to play
     next_generation = game.board.copy()
     for index, cell in np.ndenumerate(game.board):
         count = game.get_live_neighbor_count(index)
@@ -36,11 +39,10 @@ for n in range(100): # Set number of generations / life cycles to play
             next_generation[index] = 0 # Death from under/over population
         else:
             pass
+    
     game.board = next_generation
-    print(game.board)
     img.set_data(game.board)
     plt.draw()
-    plt.pause(0.1) # TODO: allow user to set game speed
+    plt.pause(speed) # Slow game down so player can see generations
 
 #TODO: preserve final generation image.
-#TODO: This algorithm doesn't scale well...how can I redesign to make it scale?

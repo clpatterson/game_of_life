@@ -2,9 +2,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.signal import convolve2d
 
-
+# Global game variables
 size = 1000
 generations = 100
+speed = 0.1
+
 board = np.random.randint(2, size=(size,size))
 plt.ion() # set matplotlib to interactive mode
 img = plt.imshow(board)
@@ -32,4 +34,4 @@ for i in range(generations):
     board = next_gen
     img.set_data(board)
     plt.draw()
-    plt.pause(.01)
+    plt.pause(speed)
